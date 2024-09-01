@@ -2,6 +2,8 @@
 
 **CheckCheckPWA** is a Progressive Web Application (PWA) for managing your tasks and uses React, Vite, Supabase and TailwindCSS. This Project was developed for a Bachelorthesis.
 
+You can access the live version of this project [here](https://main--glittery-cannoli-00a87a.netlify.app/).
+
 ## Table of Contents
 
 -   [Installation](#installation)
