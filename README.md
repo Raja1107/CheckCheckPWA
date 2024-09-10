@@ -4,18 +4,18 @@
 
 You can access the live version of CheckCheckPWA [here](https://checkcheckpwa.netlify.app/).
 
-## Installation
+## Installation and Run Project
 
-To get started with the project, follow these steps:
+To get started with the project, follow the steps below:
 
-1. **Install dependencies:**
-   Make sure you have Node.js and pnpm installed. Then run:
+**Install dependencies:**
+Make sure you have Node.js and pnpm installed. Then run:
 
-    ```sh
-    pnpm install
-    ```
+```sh
+pnpm install
+```
 
-## Run Project:
+**Run Project:**
 
 To start the development server, run:
 
