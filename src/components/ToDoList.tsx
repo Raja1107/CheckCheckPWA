@@ -8,6 +8,8 @@ const ToDoList = () => {
     const [todos, setTodos] = useState<ToDo[]>([])
     const [loading, setLoading] = useState(true)
 
+    const incompleteTodos = todos.filter((todo) => !todo.is_complete)
+
     async function fetchData() {
         try {
             setLoading(true)
@@ -63,7 +65,6 @@ const ToDoList = () => {
 
     const updateToDo = async (todo: ToDo) => {
         try {
-            // Attempt to update the todo in the database by id
             const { data, error } = (await supabase
                 .from('ToDo_Table')
                 .update(todo)
@@ -76,14 +77,12 @@ const ToDoList = () => {
                 )
             }
 
-            // Ensure data is properly typed and not empty
             if (!data || data.length === 0) {
                 throw new Error(
                     `No data received when updating ToDo (ID: ${todo.id})`
                 )
             }
 
-            // Update the state with the updated todo
             setTodos((prevTodos) =>
                 prevTodos.map((t) => (t.id === todo.id ? data[0] : t))
             )
@@ -150,8 +149,17 @@ const ToDoList = () => {
                         ))}
                     </ul>
                     <p className="text-center">
-                        You have {todos.length}{' '}
-                        {todos.length > 1 ? 'Things' : 'Thing'} to complete!
+                        {incompleteTodos.length === 0 ? (
+                            "You're all done! Go and add some more tasks!"
+                        ) : (
+                            <p>
+                                You have {incompleteTodos.length}{' '}
+                                {incompleteTodos.length > 1
+                                    ? 'Things '
+                                    : 'Thing '}
+                                to complete!
+                            </p>
+                        )}
                     </p>
                 </div>
             )}
